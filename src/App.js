@@ -1,4 +1,16 @@
+import { useState } from 'react';
+
+import SearchBar from "./Components/SearchBar";
+
 function App() {
-  return <div>App</div>
+  const handleSearchImage = () => {
+
+  }
+
+  return(
+    <div> 
+      <SearchBar />
+    </div>
+  ) 
 }
 export default App;
