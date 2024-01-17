@@ -1,16 +1,26 @@
 import {useState} from 'react';
 
-import SearchImages from '../Services/services';
+import './SearchBar.css';
 
-function SearchBar(props) {
+function SearchBar({onSubmit}) {
     const [searchTerm, setSearchTerm] = useState('');
 
-    return (
-        <div>
-            <div>SearchBar</div>
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-            <input type='text' placeholder={props}/>
-            <button>Search</button>
+        onSubmit(searchTerm);
+    }
+    
+    return (
+        <div className="search-bar">        
+            <form  onSubmit={handleSubmit}>
+                <label>Enter Search Term</label>
+                <input 
+                    type='text' 
+                    onChange={e => setSearchTerm(e.target.value)} 
+                    value={searchTerm}/>
+                {/* <button onClick={handleSubmit}>Search</button> */}
+            </form>
         </div>
     )
   };
